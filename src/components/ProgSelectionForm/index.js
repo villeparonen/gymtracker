@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import ProgSelectionRF from './ProgSelectionRF';
 
 // SUBMIT Component
@@ -8,7 +9,7 @@ import ProgSelectionRF from './ProgSelectionRF';
 const wait = () => new Promise((resolve) => {
     setTimeout(() => {
         resolve();
-    }, 3000);
+    }, 100);
 });
 
 
@@ -16,16 +17,35 @@ const wait = () => new Promise((resolve) => {
 // a common pattern is to disable the form elements until the submission is complete.
 
 class ProgSelection extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            programName: '',
+            goal: '',
+            programNameGiven: false
+        };
+    }
     handleSubmit = async ({ programName, goal }) => {
         console.log('SUBMITTED');
-        console.log(`Program's name: ${programName}`);
-        console.log(`Program's goal: ${goal}`);
         await wait();
+        this.setState({
+            programName,
+            goal,
+            programNameGiven: true
+        });
+        console.log(this.state.programName + this.state.goal);
+
         // throw new Error(); // TEST SUBMISSION ERROR
     }
 
     render() {
-        return <ProgSelectionRF onSubmit={this.handleSubmit} />;
+        return (
+            <View>
+                {this.state.programNameGiven ?
+                    <ProgSelectionRF onSubmit={this.handleSubmit} /> :
+                    <ProgSelectionRF onSubmit={this.handleSubmit} />}
+            </View>
+        );
     }
 }
 

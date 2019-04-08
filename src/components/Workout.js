@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default class App extends Component {
+export default class Workout extends Component {
     
     render() {
         const { container, devInformation } = styles;

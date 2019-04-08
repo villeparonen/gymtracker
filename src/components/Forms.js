@@ -2,9 +2,10 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, Text } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import ProgSelection from './ProgSelectionForm';
 import Listworkouts from './Listworkouts';
+
 // import DaySelection from './DaySelectionForm';
 
 const rootReducer = combineReducers({
@@ -13,7 +14,7 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
-export default class App extends Component {
+export default class Forms extends Component {
   state = {
     activeForm: ''
   };
@@ -24,7 +25,7 @@ export default class App extends Component {
 
   render() {
     const { activeForm } = this.state;
-    const { container, devInformation } = styles;
+    const { container } = styles;
     return (
       <Provider store={store}>
         <View style={container}>
@@ -34,12 +35,6 @@ export default class App extends Component {
           {activeForm === 'Program' && <ProgSelection />}
           {activeForm === 'Listworkouts' && <Listworkouts />}
           {/* {activeForm === 'Day' && <DaySelection />} */}
-          <Text style={devInformation}>
-            A. Start your workout: 1. NAME, 2. GOAL ->
-            3. Set training day: movements, sets, reps
-            B. See list of programs.. Select one that will be seen on Work Out screen.
-            Also you can use DragAndDrop to set order of program
-        </Text>
         </View>
       </Provider>
     );
