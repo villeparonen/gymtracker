@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import Forms from '../src/components/Forms';
 import Header from '../src/components/header';
 
@@ -12,10 +12,10 @@ export default class SettingsScreen extends React.Component {
     const { container } = styles;
 
     return (
-      <View style={container}>
+      <ScrollView style={container}>
         <Header headerName={'Set and change programs!'} />
         <Forms />
-      </View>
+      </ScrollView>
     );
   }
 }

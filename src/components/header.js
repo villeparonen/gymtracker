@@ -6,21 +6,27 @@ import { Text, View, StyleSheet, Platform } from 'react-native';
 
 // make a component
 const Header = (props) => {
-    const { headerViewStyle, headerTextStyle } = styles;
+    const { headerViewStyle, headerTextStyle, headerContainer } = styles;
 
     return (
-        <View style={headerViewStyle}>
-            <Text style={headerTextStyle}>{props.headerName}</Text>
+        <View style={headerContainer}>
+            <View style={headerViewStyle}>
+                <Text style={headerTextStyle}>{props.headerName}</Text>
+            </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
+    headerContainer: {
+        alignItems: 'center'
+    },
     headerViewStyle: {
         height: 100,
-        width: 600, 
+        width: 600,
         justifyContent: 'center',
         alignItems: 'center',
+        textAlign: 'center',
         backgroundColor: 'green',
         margin: 5,
         paddingTop: 15,
@@ -30,7 +36,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         ...Platform.select({
             ios: {
-              shadowOpacity: 0.2,
+                shadowOpacity: 0.2,
             },
             android: {
                 elevation: 10,
@@ -38,7 +44,7 @@ const styles = StyleSheet.create({
         }),
     },
     headerTextStyle: {
-        fontSize: 24, 
+        fontSize: 24,
         color: 'white',
         textAlign: 'center',
     }

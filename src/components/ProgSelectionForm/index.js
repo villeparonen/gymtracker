@@ -19,31 +19,30 @@ const wait = () => new Promise((resolve) => {
 class ProgSelection extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            programName: '',
-            goal: '',
-            programNameGiven: false
-        };
+        // this.state = {
+        //
+        // };
     }
     handleSubmit = async ({ programName, goal }) => {
         console.log('SUBMITTED');
         await wait();
-        this.setState({
-            programName,
-            goal,
-            programNameGiven: true
-        });
-        console.log(this.state.programName + this.state.goal);
 
+        this.props.programNameLiftUp(programName, goal);
+        
+        console.log(`These are programPROPS. 
+        programName: ${this.props.programName} 
+        goal: ${this.props.goal}`);
+
+        this.props.handleExcerciseCreation();
         // throw new Error(); // TEST SUBMISSION ERROR
     }
 
     render() {
         return (
             <View>
-                {this.state.programNameGiven ?
-                    <ProgSelectionRF onSubmit={this.handleSubmit} /> :
-                    <ProgSelectionRF onSubmit={this.handleSubmit} />}
+                <ProgSelectionRF
+                    onSubmit={this.handleSubmit}
+                />
             </View>
         );
     }

@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import Header from '../src/components/header';
-import Workout from '../src/components/Workout';
+import Workout from '../src/components/Workout/Workout';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -28,7 +28,6 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
 });
