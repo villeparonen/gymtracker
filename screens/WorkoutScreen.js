@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  //  Platform,
-  // ScrollView,
-  StyleSheet,
-  // TouchableOpacity,
-  View,
-} from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import Header from '../src/components/header';
 import Workout from '../src/components/Workout/Workout';
 
@@ -18,10 +12,10 @@ export default class HomeScreen extends React.Component {
     const { container } = styles;
 
     return (
-      <View style={container}>
+      <ScrollView style={container}>
         <Header headerName={'Workout!'} />
         <Workout />
-      </View>
+      </ScrollView>
     );
   }
 }

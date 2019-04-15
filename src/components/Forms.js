@@ -74,7 +74,7 @@ export default class Forms extends Component {
           <Text>Just updated {(new Date()).toLocaleTimeString('fi-FI')}</Text>
           {activeForm !== 'Listworkouts' && <Button title="List of workouts" onPress={this.handleListworkouts} />}
           {(activeForm !== 'Program' && activeForm !== 'Excercise') && <Button title="Create new workout" onPress={this.handlePressProgram} />}
-          {/* {activeForm === 'Excercise' && <Button title="Program in progress" onPress={this.handleShowProgress} />} */}
+          {activeForm === 'Excercise' && <Button title="Program in progress" onPress={this.handleShowProgress} />}
 
           {this.state.ShowTrainingDay && <ShowProgress
             programName={this.state.programName}
