@@ -1,4 +1,5 @@
 import { reduxForm } from 'redux-form';
+// import { reduxForm } from 'redux-form/immutable';   kokeile
 import ProgSelectionView from './ProgSelectionView';
 
 // RF: REDUX FORM MANAGEMENT component

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput } from 'react-native';
+import { PropTypes } from 'prop-types';
+import { Text, View, TextInput, StyleSheet } from 'react-native';
 import CheckboxMachine from './CheckboxMachine';
-import ModalNote from './ModalNote';
 import Card from './Card';
+import ModalNote from './ModalNote';
 import CardSection from './CardSection';
 
 class ExcerciseDetail extends Component {
@@ -92,7 +93,6 @@ class ExcerciseDetail extends Component {
                             </Text>
                             )}
                     </View>
-                    {/* ModalNote is component for writing notes about certain excercises */}
                     <ModalNote />
                 </CardSection>
                 <CardSection>
@@ -111,7 +111,7 @@ class ExcerciseDetail extends Component {
 }
 
 // Styles for CardSection and Texts & inputs for ExcerciseName, sets and reps
-const styles = {
+const styles = StyleSheet.create({
     excerciseName: {
         fontSize: 16,
         borderWidth: 1,
@@ -141,6 +141,20 @@ const styles = {
     cardText: {
         fontSize: 16
     }
-};
+});
+
+// Onko kunnossa?  ? ? ?
+ExcerciseDetail.propTypes = {
+    Sets: PropTypes.number.isRequired,
+    Weights: PropTypes.number.isRequired,
+    Reps: PropTypes.number.isRequired,
+  };
+
+  // Default values for props
+  ExcerciseDetail.defaultProps = {
+    Sets: 0,
+    Weights: 0,
+    Reps: 0
+  };
 
 export default ExcerciseDetail;

@@ -19,9 +19,9 @@ const wait = () => new Promise((resolve) => {
 class ProgSelection extends Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //
-        // };
+        this.state = {
+        
+        };
     }
     handleSubmit = async ({ programName, goal }) => {
         console.log('SUBMITTED');

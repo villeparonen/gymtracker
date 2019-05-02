@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { CheckBox } from 'react-native-elements';
-import { View, TextInput, TouchableOpacity } from 'react-native';
+import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 class CheckboxMachine extends Component {
     constructor(props) {
@@ -30,18 +30,6 @@ class CheckboxMachine extends Component {
         this.setState({
             inputAvailable: true,
             showNumber: true
-        });
-    }
-
-    handleInputFocus = () => {
-        this.setState({
-          //  isFocused: true,
-        });
-    }
-
-    handleInputBlur() {
-        this.setState({
-            xaxa: '#ededed'
         });
     }
 
@@ -82,11 +70,12 @@ class CheckboxMachine extends Component {
                                         <CheckBox
                                             style={cardCheckBox}
                                             center
-                                            key={this.props.key}
                                             checkedIcon='done'
                                             uncheckedIcon='add'
                                             // Color for uncheckedIcon is given randomly everytime
-                                            uncheckedColor={`rgba(${this.state.randomColor1},${this.state.randomColor2},${this.state.randomColor3},0.55)`}
+                                            uncheckedColor={`rgba(${this.state.randomColor1},
+                                                ${this.state.randomColor2},
+                                                ${this.state.randomColor3},0.55)`}
                                             activeOpacity={0.1}
                                             iconRight
                                             iconType='material'
@@ -106,19 +95,19 @@ class CheckboxMachine extends Component {
     }
 }
 
-const styles = {
+const styles = StyleSheet.create({
     markNumber: {
         width: 50,
         height: 50,
         borderWidth: 2,
         borderColor: 'green',
     },
-    cardCheckBox: {
-        checkboxSize: 22
-    },
+    // cardCheckBox: {
+    //     checkboxSize: 22
+    // },
     changeColor: {
         backgroundColor: 'green'
     }
-};
+});
 
 export default CheckboxMachine;

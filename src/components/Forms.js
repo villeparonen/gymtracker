@@ -2,8 +2,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import React, { Component } from 'react';
-import { StyleSheet, View, Button, Text, ScrollView } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { StyleSheet, View, Button, Text } from 'react-native';
 import ProgSelection from './ProgSelectionForm';
 import ExcerciseCreation from './ExcerciseSelectionForm';
 import Listworkouts from './Listworkouts';
@@ -72,9 +71,12 @@ export default class Forms extends Component {
       <Provider store={store}>
         <View style={container}>
           <Text>Just updated {(new Date()).toLocaleTimeString('fi-FI')}</Text>
-          {activeForm !== 'Listworkouts' && <Button title="List of workouts" onPress={this.handleListworkouts} />}
-          {(activeForm !== 'Program' && activeForm !== 'Excercise') && <Button title="Create new workout" onPress={this.handlePressProgram} />}
-          {activeForm === 'Excercise' && <Button title="Program in progress" onPress={this.handleShowProgress} />}
+          {activeForm !== 'Listworkouts' &&
+            <Button title="List of workouts" onPress={this.handleListworkouts} />}
+          {(activeForm !== 'Program' && activeForm !== 'Excercise') &&
+            <Button title="Create new workout" onPress={this.handlePressProgram} />}
+          {activeForm === 'Excercise' &&
+            <Button title="Program in progress" onPress={this.handleShowProgress} />}
 
           {this.state.ShowTrainingDay && <ShowProgress
             programName={this.state.programName}

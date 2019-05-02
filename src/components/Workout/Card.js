@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 // Styling component
 
@@ -13,10 +13,10 @@ const Card = (props) => {
     );
 };
 
-const styles = {
+const styles = StyleSheet.create({
     cardStyle: {
         borderWidth: 1,
-        borderRadius: 2,
+        borderRadius: 4,
         borderColor: '#ddd',
         borderBottomWidth: 0,
         shadowColor: '#000',
@@ -28,7 +28,7 @@ const styles = {
         marginRight: 5,
         marginTop: 10
     }
-};
+});
 
 
 export default Card;

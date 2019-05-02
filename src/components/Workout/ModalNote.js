@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Modal, Text, View, TextInput } from 'react-native';
-import { Button } from 'react-native-elements';
-import { Icon } from 'react-native-elements';
+import { Modal, Text, View, TextInput, Alert, StyleSheet, ScrollView } from 'react-native';
+import { Button, Icon } from 'react-native-elements';
 
 // This is component for writing nodes. User click 'noteIcon' Icon and then opens a modal.
 // Inside modal user can write notes and save them attached to certain excercise
@@ -10,15 +9,24 @@ import { Icon } from 'react-native-elements';
 class ModalNote extends Component {
     state = {
         modalVisible: false,
-        note: ''
+        showNote: false,
+        note: '',
+        date: '',
+        timerRunning: false,
+        time: 5000
     };
 
     setModalVisible = () => {
         this.setState({ modalVisible: !this.state.modalVisible });
     }
 
+    submitNote = () => {
+        this.setState({ showNote: true });
+        this.TextInput.value = '';
+    }
+
     render() {
-        const { noteIcon, viewForNotes, modalContent, closeButton, modalContainer, textArea } = styles;
+        const { noteIcon, viewForNotes, showNotes, modalContent, closeButton, textAreaContainer, modalContainer, textArea } = styles;
         return (
             <View>
                 <Modal
@@ -28,26 +36,36 @@ class ModalNote extends Component {
                     presentationStyle='overFullScreen'
                     visible={this.state.modalVisible}
                     onRequestClose={() => {
-
-                    }}>
+                        Alert.alert('Modal has been closed.');
+                    }}
+                >
                     <View style={viewForNotes}>
                         <View style={modalContent}>
                             <Text>Notes for THIS.EXERCISE!</Text>
                             <Text>Last time you did this excercise was DATE</Text>
                             <Text>Last time you did: Weights, sets, reps</Text>
                             <Text>Today you are going to do: Weights, sets, reps</Text>
-                            <View style={styles.textAreaContainer} >
-                                <Text>Notes: </Text>
+                            <View style={textAreaContainer} >
+                                <Text>Write notes: </Text>
                                 <TextInput
                                     style={textArea}
-                                    underlineColorAndroid="transparent"
+                                    underlineColorAndroid='blue'
                                     numberOfLines={3}
-                                    multiline={true}
-                                    onChangeText={(note) => this.setState({ note })}
+                                    multiline={false}
+                                    onSubmitEditing={this.submitNote}
+                                    onChangeText={(text) => this.setState({
+                                        note: text,
+                                        date: (new Date()).toLocaleDateString('fi-FI')
+                                    })}
                                     value={this.state.note}
+                                    ref={input => { this.TextInput = input; }}
                                 />
                             </View>
                         </View>
+                        {this.state.showNote ?
+                            (<View style={showNotes}><Text>Notes:</Text><Text>{this.state.date}: {this.state.note}</Text></View>)
+                            : (null)}
+                     
                     </View>
                     <View style={closeButton}>
                         <Button
@@ -72,7 +90,7 @@ class ModalNote extends Component {
     }
 }
 
-const styles = {
+const styles = StyleSheet.create({
     textAreaContainer: {
         padding: 5
     },
@@ -83,9 +101,6 @@ const styles = {
         marginRight: 12,
         marginLeft: 12
     },
-    modalContent: {
-        // justifyContent: 'flex-start'
-    },
     textArea: {
         borderWidth: 1,
         borderColor: 'turquoise',
@@ -93,6 +108,7 @@ const styles = {
         marginBottom: 20
     },
     modalContainer: {
+        flex: 1, 
         marginTop: '50%'
     },
     viewForNotes: {
@@ -109,8 +125,11 @@ const styles = {
         height: '50%'
     },
     noteIcon: {
-          marginLeft: 10
+        marginLeft: 10
     },
-};
+    showNotes: {
+        paddingLeft: 10
+    }
+});
 
 export default ModalNote;

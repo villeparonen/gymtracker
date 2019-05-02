@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { View } from 'react-native';
 import ExcerciseRF from './ExcerciseRF';
 
 // SUBMIT Component
@@ -20,9 +19,9 @@ const wait = () => new Promise((resolve) => {
 class ExcerciseCreation extends Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //    
-        // };
+        this.state = {
+           //
+        };
     }
     handleSubmit = async ({ excerciseName, weight, sets, reps, pause }) => {
         console.log('Excercise submitted');
@@ -41,7 +40,6 @@ class ExcerciseCreation extends Component {
     }
 
     render() {
-        const { justAddedTrainingDay } = styles;
         return (
             <View>
                 <ExcerciseRF onSubmit={this.handleSubmit} />
@@ -49,12 +47,5 @@ class ExcerciseCreation extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    justAddedTrainingDay: {
-      color: 'blue'
-    }
-  });
-  
 
 export default ExcerciseCreation;

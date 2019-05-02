@@ -14,10 +14,14 @@ const ShowProgress = (props) => {
                         (
                             <View key={index} style={ExcerciseContainer}>
                                 <Text>{index + 1}. Excercise: {item.excerciseName}</Text>
-                                {item.weight ? (<Text>Starting weight: {item.weight}</Text>) : (<Text>Starting weight: Not set yet</Text>)}
-                                {item.sets ? (<Text>Sets to make: {item.sets}</Text>) : (<Text>Sets: Not set yet</Text>)}
-                                {item.reps ? (<Text>Reps: {item.reps}</Text>) : (<Text>Reps: Not set yet</Text>)}
-                                {item.pause ? (<Text>Pauses: {item.pause}</Text>) : (<Text>Pauses: Not set yet</Text>)}
+                                {item.weight ? (<Text>Starting weight: {item.weight}</Text>) :
+                                    (<Text>Starting weight: Not set yet</Text>)}
+                                {item.sets ? (<Text>Sets to make: {item.sets}</Text>) :
+                                    (<Text>Sets: Not set yet</Text>)}
+                                {item.reps ? (<Text>Reps: {item.reps}</Text>) :
+                                    (<Text>Reps: Not set yet</Text>)}
+                                {item.pause ? (<Text>Pauses: {item.pause}</Text>) :
+                                    (<Text>Pauses: Not set yet</Text>)}
                             </View>
                         )
                     )

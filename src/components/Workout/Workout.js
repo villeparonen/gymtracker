@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import ExcerciseDetail from './ExcerciseDetail';
 // import Card from './Card';
@@ -15,35 +15,23 @@ export default class Workout extends Component {
             trainingDay: 'trainingDay 1',
             excercises: [
                 {
-                    excerciseName: 'Bench press',
-                    weights: 60,
+                    excerciseName: 'Penkki',
+                    weights: 70,
                     sets: 3,
                     reps: 10
                 },
                 {
-                    excerciseName: 'Squat',
-                    weights: 80,
-                    sets: 3,
+                    excerciseName: 'Kyykky',
+                    weights: 90,
+                    sets: 4,
                     reps: 10
                 },
                 {
-                    excerciseName: 'Squat',
-                    weights: 80,
-                    sets: 3,
-                    reps: 10
+                    excerciseName: 'Mave',
+                    weights: 75,
+                    sets: 5,
+                    reps: 5
                 },
-                {
-                    excerciseName: 'Squat',
-                    weights: 80,
-                    sets: 3,
-                    reps: 10
-                },
-                {
-                    excerciseName: 'Squat',
-                    weights: 80,
-                    sets: 3,
-                    reps: 10
-                }
             ]
         };
     }
@@ -87,7 +75,8 @@ export default class Workout extends Component {
                 </View>
                 <View style={superButton}>
                     {/* Kun liikkeet ovat Checked button muuttuu vihreäksi. 
-                Sitä voi kuitenkin painaa aiemminkin. Kun nappia painaa ohjelma jää workout näkymään. 
+                Sitä voi kuitenkin painaa aiemminkin. 
+                Kun nappia painaa ohjelma jää workout näkymään. 
                 Mutta ensi kerralla näkymässä on eri ohjelma.  */}
                     <Button
                         title="Done!"
@@ -99,7 +88,7 @@ export default class Workout extends Component {
     }
 }
 
-const styles = {
+const styles = StyleSheet.create({
     programHeader: {
         marginTop: 16,
         marginBottom: 6,
@@ -108,7 +97,7 @@ const styles = {
         flexDirection: 'row'
     },
     programHeaderLeft: {
-        float: 'left',
+        // float: 'left', float ominaisuus ei toimi stylesheetissä
         marginRight: 40
     },
     programHeaderCenter: {
@@ -116,10 +105,10 @@ const styles = {
         alignItems: 'center'
     },
     programHeaderRight: {
-        float: 'right',
+        // float: 'right',
         marginLeft: 40
     },
     superButton: {
         margin: 12
     }
-};
+});

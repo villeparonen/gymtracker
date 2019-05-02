@@ -4,7 +4,7 @@ import { TextInput, Text, View } from 'react-native';
 import styles from './styles';
 
 const RFTextInput = ({
-    input: { onBlur, onChange, onFocus, value },
+    input: { value, onChange, onFocus, onBlur },
     meta: { error, touched, valid },
     disabled,
 }) => (

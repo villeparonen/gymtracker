@@ -1,8 +1,9 @@
-import { PropTypes } from 'prop-types';
+
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import { Button, Text, View } from 'react-native';
 import { Field } from 'redux-form';
-import RFTextView from '../../../RFTextInput';
+import RFTextInput from '../../../RFTextInput/index';
 import styles from './styles';
 
 // The component is responsible for the form’s view
@@ -15,22 +16,18 @@ import styles from './styles';
 // The name property uniquely identifies the field in the form. 
 // The component property defines the component to generate a view for the field.
 
-const ProgSelectionView = ({
-    handleSubmit,
-    submitFailed,
-    submitSucceeded,
-    submitting,
-    valid
-}) => (
+const ProgSelectionView = (props) => {
+    const { handleSubmit, submitFailed, submitSucceeded, submitting, valid } = props;
+    return (
         <View>
             <Text>What is the name of the program? </Text><Field
                 name="programName"
-                component={RFTextView}
+                component={RFTextInput}
                 disabled={submitting}
             />
             <Text>What is the goal of the program? </Text><Field
-                name="goal"  // 
-                component={RFTextView}
+                name="goal"
+                component={RFTextInput}
                 disabled={submitting}
             />
             {!submitting && submitFailed && <Text style={styles.rootFailed}>
@@ -47,6 +44,7 @@ const ProgSelectionView = ({
             />
         </View>
     );
+};
 
 ProgSelectionView.propTypes = {
     submitFailed: PropTypes.bool.isRequired,

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  //  Platform,
-  // ScrollView,
-  StyleSheet,
-  // TouchableOpacity,
-  View,
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Header from '../src/components/header';
 import History from '../src/components/History';
 
