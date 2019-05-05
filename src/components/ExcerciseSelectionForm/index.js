@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import ExcerciseRF from './ExcerciseRF';
+import { API, graphqlOperation } from 'aws-amplify';
+import { createTrainingDay } from '../../graphql/mutations';
 
 // SUBMIT Component
 // This outer-most component is responsible for supplying a function 
@@ -26,9 +28,6 @@ class ExcerciseCreation extends Component {
     handleSubmit = async ({ excerciseName, weight, sets, reps, pause }) => {
         console.log('Excercise submitted');
         await wait();
-
-        // 1. Luo TrainingDay - paketoitusetti, jonka voi viedä parent form-komponenttiin
-        // 2. Parent komponentissa uutuuden pitäisi jatkaa vanhaa.. eli concat yms. 
        
         this.props.trainingDayLiftUp(excerciseName, weight, sets, reps, pause);
        
@@ -36,6 +35,20 @@ class ExcerciseCreation extends Component {
         weight: ${this.props.weight} sets:${this.props.sets}
         reps: ${this.props.reps} pause: ${this.props.pause}`);
 
+                // createTrainingDay(input: $input) {
+        //     workout {
+        //       programName
+        //       id
+        //       goal
+        //       description
+        //       trainingdays {
+        //         id
+        //         order
+        //         title
+        //         description
+        //       }
+
+        API.graphql(graphqlOperation(createTrainingDay, { input }));
         // throw new Error(); // TEST SUBMISSION ERROR
     }
 

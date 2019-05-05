@@ -1,7 +1,9 @@
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import React, { Component } from 'react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { createWorkout } from '../graphql/mutations';
 import { StyleSheet, View, Button, Text } from 'react-native';
 import ProgSelection from './ProgSelectionForm';
 import ExcerciseCreation from './ExcerciseSelectionForm';
@@ -34,6 +36,7 @@ export default class Forms extends Component {
   handleShowProgress = () => this.setState({ activeForm: 'ShowProgress' })
 
   trainingDayLiftUp = (excerciseName, weight, sets, reps, pause) => {
+    console.log('lift up happening');
     this.setState({
       excerciseName,
       weight,
@@ -56,13 +59,28 @@ export default class Forms extends Component {
       ]
     });
 
+      // const { programName } = this.state;
+      // const { goal } = this.state;
+      // const { description } = this.state;
+      // const { excerciseNameD } = this.state;
+      // const { weightD } = this.state;
+      // const { setsD } = this.state;
+      // const { repsD } = this.state;
+      // const { pauseD } = this.state;
+  
+     //  const input = { programName, goal, description, excerciseNameD, weightD, setsD, repsD, pauseD };
+    //  console.log('API.graphql(graphqlOperation happening');
+     // API.graphql(graphqlOperation(createWorkout, { input }));
+
     this.setState({ ShowTrainingDay: true });
   }
 
-  programNameLiftUp = (programName, goal) => this.setState({
-    programName,
-    goal
-  });;
+  programNameLiftUp = (programName, goal) => {
+    this.setState({
+      programName,
+      goal
+    });
+  }
 
   render() {
     const { activeForm } = this.state;
