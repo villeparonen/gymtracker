@@ -1,0 +1,36 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "gymtracker-20190502160228-authRole",
+            "UnauthRoleArn": "arn:aws:iam::722208634435:role/gymtracker-20190502160228-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::722208634435:role/gymtracker-20190502160228-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "gymtracker-20190502160228-deployment",
+            "UnauthRoleName": "gymtracker-20190502160228-unauthRole",
+            "StackName": "gymtracker-20190502160228",
+            "StackId": "arn:aws:cloudformation:eu-west-1:722208634435:stack/gymtracker-20190502160228/8b1b18f0-6cda-11e9-ab30-06e26620325a"
+        },
+        "categories": {
+            "auth": {
+                "cognito9a249990": {}
+            }
+        }
+    },
+    "devv": {
+        "awscloudformation": {
+            "AuthRoleName": "gymtracker-20190505165210-authRole",
+            "UnauthRoleArn": "arn:aws:iam::722208634435:role/gymtracker-20190505165210-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::722208634435:role/gymtracker-20190505165210-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "gymtracker-20190505165210-deployment",
+            "UnauthRoleName": "gymtracker-20190505165210-unauthRole",
+            "StackName": "gymtracker-20190505165210",
+            "StackId": "arn:aws:cloudformation:eu-west-1:722208634435:stack/gymtracker-20190505165210/fdbe0340-6f3c-11e9-956b-068bfa33c7ce"
+        },
+        "categories": {
+            "auth": {
+                "cognito9a249990": {}
+            }
+        }
+    }
+}

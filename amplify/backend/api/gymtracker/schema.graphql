@@ -1,0 +1,51 @@
+type Workout @model {
+  programName: String!
+  id: ID!
+  goal: String
+  description: String
+  trainingdays: [Training] @connection(name: "WorkoutTrainings")
+  createdAt: AWSDateTime
+}
+
+type Training @model {
+  workout: Workout @connection(name: "WorkoutTrainings")
+  id: ID!
+  order: Int!
+  title: String
+  done: Boolean
+  next: Boolean
+  description: String
+  notes: String
+  excercises: [Excercise] @connection(name: "TrainingExcercises")
+  createdAt: AWSDateTime
+}
+
+type Excercise @model {
+  trainingday: Training @connection(name: "TrainingExcercises")
+  id: ID!
+  excerciseName: String!
+  weights: Float
+  sets: Int
+  reps: Int
+  notes: String
+  createdAt: AWSDateTime
+}
+
+
+# type Blog @model {
+#   id: ID!
+#   name: String!
+#   posts: [Post] @connection(name: "BlogPosts")
+# }
+# type Post @model {
+#   id: ID!
+#   title: String!
+#   content: String!
+#   blog: Blog @connection(name: "BlogPosts")
+#   comments: [Comment] @connection(name: "PostComments")
+# }
+# type Comment @model {
+#   id: ID!
+#   content: String
+#   post: Post @connection(name: "PostComments")
+# }

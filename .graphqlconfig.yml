@@ -1,0 +1,16 @@
+projects:
+  gymtracker:
+    schemaPath: src\graphql\schema.json
+    includes:
+      - src\graphql\**\*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src\graphql
+        graphQLApiId: uzhkrilqejcljesvofc73oarfq
+      endpoints:
+        prod: >-
+          https://yt6n4x6cangshplslb7wuyveoa.appsync-api.eu-west-1.amazonaws.com/graphql

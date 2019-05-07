@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "gymtracker",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognito9a249990",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
